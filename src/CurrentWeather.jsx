@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherCurrentData from "./WeatherCurrentData";
-import Forecast from "./Forecast";
+import WeatherIcon from "./WeatherIcon";
 
 export default function CurrentWeather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -11,11 +11,14 @@ export default function CurrentWeather(props) {
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
+      coordinates: response.data.coordinates,
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      icon: response.data.condition.icon,
       date: new Date(response.data.dt * 1000),
+      city: response.data.name,
+      icon: response.data.condition.icon,
+      iconURL: response.data.condition.icon_url,
     });
   }
 
@@ -30,7 +33,7 @@ export default function CurrentWeather(props) {
 
   function search() {
     const apiKey = "b84b065do096ab8b5a39fb9t38e99a64";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -46,11 +49,10 @@ export default function CurrentWeather(props) {
               className="search-input"
               onChange={handleCityChange}
             />
-            <input type="submit" value="Search" class="search-button" />
+            <input type="submit" value="Search" className="search-button" />
           </form>
         </div>
         <WeatherCurrentData data={weatherData} />
-        <Forecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
