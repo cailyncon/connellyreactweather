@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherCurrentData from "./WeatherCurrentData";
-import WeatherIcon from "./WeatherIcon";
 
 export default function CurrentWeather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -15,8 +14,8 @@ export default function CurrentWeather(props) {
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      date: new Date(response.data.dt * 1000),
-      city: response.data.name,
+      date: new Date(response.data.time * 1000),
+      city: response.data.city,
       icon: response.data.condition.icon,
       iconURL: response.data.condition.icon_url,
     });

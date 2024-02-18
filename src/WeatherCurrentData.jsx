@@ -7,14 +7,15 @@ export default function WeatherCurrentData(props) {
   return (
     <div>
       <div className="current-weather">
-        <h1>{props.data.city}</h1>
-        <FormatDate date={props.data.date} />
+        <div>
+          {props.data.city}
+          <FormatDate date={props.data.date} />
+        </div>
         <div className="current-temperature">
           <div className="icon-img" id="icon"></div>
           <span className="current-temperature-value">
             <WeatherTemperature celsius={props.data.temperature} />
             <WeatherIcon iconURL={props.data.iconURL} />
-            <div></div>
           </span>
         </div>
         <div className="current-details">
