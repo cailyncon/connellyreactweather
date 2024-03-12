@@ -21,7 +21,7 @@ export default function App() {
             </a>
             and is&nbsp;
             <a
-              href="https://github.com/cailyncon/connelly-weather"
+              href="https://github.com/cailyncon/connellyreactweather"
               target="_blank"
               rel="noreferrer"
             >
@@ -29,7 +29,7 @@ export default function App() {
             </a>
             and&nbsp;
             <a
-              href="https://connelly-weather.netlify.app"
+              href="https://connellyreactweather.netlify.app/"
               target="_blank"
               rel="noreferrer"
             >
