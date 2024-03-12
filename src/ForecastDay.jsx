@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "./WeatherIcon";
+import "./App.css";
 
 export default function ForecastDay(props) {
   function maxTemperature() {
@@ -13,25 +13,34 @@ export default function ForecastDay(props) {
   }
 
   function day() {
-    let date = new Date(props.data.dt * 1000);
+    let date = new Date(props.data.time * 1000);
     let day = date.getDay();
 
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
     return days[day];
   }
 
   return (
-    <div>
-      <div className="WeatherForecast-day">{day()}</div>
-      <Icon code={props.data.condition.icon} size={36} />
-      <div className="WeatherForecast-temperatures">
-        <span className="WeatherForecast-temperature-max">
-          {maxTemperature()}
-        </span>
-        <span className="WeatherForecast-temperature-min">
-          {minTemperature()}
-        </span>
+    <div className="forecastslice">
+      <div className="weather-forecast-date">
+        <span>{day()}</span>{" "}
+      </div>
+      <img
+        src={props.data.condition.icon_url}
+        alt={props.data.condition.description}
+        className="forecast-icon"
+      />
+      <div className="forecast-temps">
+        <span className="forecast-temp-max">{maxTemperature()}</span>
+        <span className="forecast-temp-min">{minTemperature()}</span>
       </div>
     </div>
   );

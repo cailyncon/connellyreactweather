@@ -11,29 +11,29 @@ export default function App() {
         </main>
         <footer>
           <p>
-            This project was coded by
+            This project was coded by&nbsp;
             <a
               href="https://github.com/cailyncon"
               target="_blank"
               rel="noreferrer"
             >
-              Cailyn Connelly
+              Cailyn Connelly&nbsp;
             </a>
-            and is
+            and is&nbsp;
             <a
               href="https://github.com/cailyncon/connelly-weather"
               target="_blank"
               rel="noreferrer"
             >
-              on GitHub
+              on GitHub&nbsp;
             </a>
-            and
+            and&nbsp;
             <a
               href="https://connelly-weather.netlify.app"
               target="_blank"
               rel="noreferrer"
             >
-              hosted on Netlify
+              hosted on Netlify.
             </a>
           </p>
         </footer>
